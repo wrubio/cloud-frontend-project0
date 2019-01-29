@@ -1,24 +1,27 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+// Components
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { Page404Component } from './pages/page404/page404.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { NavbarComponent } from './shared/navbar/navbar.component';
-import { SidebarComponent } from './shared/sidebar/sidebar.component';
+
+// Routes Module
+import { APP_ROUTES } from './app.routes';
+
+// Modules
+import { PagesModule } from './pages/pages.module';
+import { ShareModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    Page404Component,
-    DashboardComponent,
-    NavbarComponent,
-    SidebarComponent
+    LoginComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    APP_ROUTES,
+    PagesModule,
+    ShareModule
   ],
   providers: [],
   bootstrap: [AppComponent]
