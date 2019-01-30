@@ -12,6 +12,10 @@ import { APP_ROUTES } from './app.routes';
 import { PagesModule } from './pages/pages.module';
 import { ShareModule } from './shared/shared.module';
 import { RegisterComponent } from './register/register.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
+// Services
+import { ServiceModule } from './services/service.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,10 @@ import { RegisterComponent } from './register/register.component';
     BrowserModule,
     APP_ROUTES,
     PagesModule,
-    ShareModule
+    ShareModule,
+    ReactiveFormsModule,
+    ServiceModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

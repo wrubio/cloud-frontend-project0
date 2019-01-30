@@ -6,49 +6,59 @@
                     <div class="bg-dark-trans">REGISTRO</div>
                 </div>
                 <div class="card-body pj0-card-body">
-                    <form [FormGroup]="forma">
+
+                    <form ngNativeValidate [formGroup]="forma" (ngSubmit)="userRegister()">
+
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Nombre</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control form-control-sm pj0-form-control" placeholder="Nombre Completo">
+                                <input formControlName="name" name="name" type="text" required class="form-control form-control-sm pj0-form-control" placeholder="Nombre Completo">
                             </div>
                         </div>
+
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Email</label>
                             <div class="col-sm-9">
-                                <input type="email" class="form-control form-control-sm pj0-form-control" placeholder="Email">
+                                <input formControlName="email" name="email" type="email" required class="form-control form-control-sm pj0-form-control" placeholder="Email">
                             </div>
                         </div>
+
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Password</label>
                             <div class="col-sm-9">
-                                <input type="password" class="form-control form-control-sm pj0-form-control" placeholder="Password">
+                                <input formControlName="password" name="password" type="password" required class="form-control form-control-sm pj0-form-control" placeholder="Password">
                             </div>
                         </div>
+
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Repetir Password</label>
                             <div class="col-sm-9">
-                                <input type="password" class="form-control form-control-sm pj0-form-control" placeholder="Repetir Password">
+                                <input formControlName="rPassword" name="rPassword" type="password" required class="form-control form-control-sm pj0-form-control" placeholder="Repetir Password">
+                                <small class="form-text text-danger" *ngIf="forma.errors?.same && !forma.pristine">Las contraseñas deben ser iguales.</small>
                             </div>
                         </div>
+
                         <div class="row">
                             <div class="offset-sm-3 col-sm-9">
                                 <div class="form-group form-check">
-                                    <input type="checkbox" class="form-check-input">
+                                    <input formControlName="conditions" name="conditions" type="checkbox" class="form-check-input">
                                     <label class="form-check-label" style="font-size: 14px">Términos y condiciones</label>
                                 </div>
                             </div>
                         </div>
+
                         <div class="row">
                             <div class="offset-sm-3 col-sm-9">
                                 <button type="submit" class="btn btn-primary btn-block" style="background-color: #1998CF;">Crear Usuario</button>
                             </div>
                         </div>
+
                         <div class="row">
                             <div class="col-sm-12" style="font-size: 14px; text-align: center; margin-top: 25px;">
                                 <a routerLink="/login">Volver a login</a>
                             </div>
                         </div>
+
                     </form>
                 </div>
             </div>

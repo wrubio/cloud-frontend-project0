@@ -6,24 +6,28 @@
                     <div class="bg-dark-trans">LOGIN</div>
                 </div>
                 <div class="card-body pj0-card-body">
-                    <form>
+
+                    <form ngNativeValidate #f="ngForm" (ngSubmit)="login(f)">
+
                         <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-3 col-form-label">Email</label>
+                            <label class="col-sm-3 col-form-label">Email</label>
                             <div class="col-sm-9">
-                                <input type="email" class="form-control form-control-sm pj0-form-control" id="inputEmail3" placeholder="Email">
+                                <input [ngModel]="email" name="email" type="email" required class="form-control form-control-sm pj0-form-control" placeholder="Email del usuario">
                             </div>
                         </div>
+
                         <div class="form-group row">
-                            <label for="inputPassword3" class="col-sm-3 col-form-label">Password</label>
+                            <label class="col-sm-3 col-form-label">Password</label>
                             <div class="col-sm-9">
-                                <input type="password" class="form-control form-control-sm pj0-form-control" id="inputPassword3" placeholder="Password">
+                                <input ngModel name="password" type="password" required class="form-control form-control-sm pj0-form-control" placeholder="Contraseña">
                             </div>
                         </div>
+
                         <div class="row">
                             <div class="col-sm-3"></div>
                             <div class="col-sm-5">
                                 <div class="form-group form-check">
-                                    <input type="checkbox" class="form-check-input">
+                                    <input [(ngModel)]="remember" name="remember" type="checkbox" class="form-check-input">
                                     <label class="form-check-label" style="font-size: 14px">Recordar usuario</label>
                                 </div>
                             </div>
