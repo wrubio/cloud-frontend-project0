@@ -25,6 +25,12 @@ body {
     margin: 0 auto;
 }
 
+.algo {
+    padding: 25px 25px 25px 225px;
+    background-color: #F4F4F5;
+    min-height: calc(100vh - 63px);
+}
+
 
 /*********************************************************************************
 * SIDEBAR STYLES
@@ -34,7 +40,7 @@ body {
     margin: 0;
     padding: 0;
     width: 200px;
-    background-color: #f1f1f1;
+    background-color: #343A40;
     position: fixed;
     height: 100%;
     overflow: auto;
@@ -61,6 +67,17 @@ div.content {
     margin-left: 200px;
     padding: 1px 16px;
     height: 1000px;
+}
+
+
+/*********************************************************************************
+* CARD EVENTS STYLES
+*/
+
+.event-card-body {
+    height: 78px;
+    overflow: hidden;
+    padding: 1rem !important;
 }
 
 

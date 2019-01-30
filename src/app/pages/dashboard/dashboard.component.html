@@ -1,3 +1,57 @@
-<p>
-  dashboard works!
-</p>
+<div class="algo">
+    <div class="card" style="width: 100%;">
+        <div class="card-body">
+            <h5 class="card-title">Eventos Programados</h5>
+            <hr>
+            <button type="button" class="btn btn-outline-secondary card-link btn-sm mb-4">Crear Evento</button>
+
+            <form action="" *ngFor="let event of userEvents">
+                <div class="card bg-light mb-2" style="max-width: 100%">
+                    <div class="card-body event-card-body">
+
+                        <div class="input-group input-group-sm">
+                            <input type="text" class="form-control" placeholder="Titulo" [value]="event.name">
+                            <div class="input-group-append" id="button-addon4">
+                                <button class="btn btn-primary" type="button">Editar</button>
+                                <button class="btn btn-danger" type="submit">Borrar</button>
+                            </div>
+                        </div>
+
+                        <span class="form-text text-danger mt-0"><small><b>Creado:</b>  Fecha de creacion.</small></span>
+
+                        <hr>
+
+                        <div class="form-group event-description">
+                            <textarea class="form-control">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi ut et corporis sit vitae debitis veniam, voluptas iure voluptate assumenda cupiditate nisi quasi veritatis at tenetur magnam distinctio quam saepe.</textarea>
+                        </div>
+
+                        <div class="start-end-date">
+                            <span class="form-text text-danger float-right">
+                              <small>
+                                <div class="input-group input-group-sm">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text" id="basic-addon1"><b>Finaliza:</b></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                    </small>
+                    </span>
+
+                    <span class="form-text text-danger float-right">
+                                <small>
+                                  <div class="input-group input-group-sm">
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1"><b>Finaliza:</b></span>
+                </div>
+                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+        </small>
+        </span>
+
+    </div>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>

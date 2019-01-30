@@ -7,6 +7,7 @@ import { ShareModule } from '../shared/shared.module';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { Page404Component } from './page404/page404.component';
+import { EventComponent } from './event/event.component';
 
 // Routes
 import { PAGES_ROUTES } from './pages.routes';
@@ -15,7 +16,8 @@ import { PAGES_ROUTES } from './pages.routes';
   declarations: [
       PagesComponent,
       DashboardComponent,
-      Page404Component
+      Page404Component,
+      EventComponent
   ],
   imports: [
     BrowserModule,
