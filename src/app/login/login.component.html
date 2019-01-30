@@ -1,3 +1,44 @@
-<p>
-  login works!
-</p>
+<div class="login" style="height: 100vh;">
+    <div class="row" style="min-height: 100%; margin: 0;">
+        <div class="col align-self-center">
+            <div class="card pj0-card">
+                <div class="card-header bg-dark text-white pj0-card-header">
+                    <div class="bg-dark-trans">LOGIN</div>
+                </div>
+                <div class="card-body pj0-card-body">
+                    <form>
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-3 col-form-label">Email</label>
+                            <div class="col-sm-9">
+                                <input type="email" class="form-control form-control-sm pj0-form-control" id="inputEmail3" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPassword3" class="col-sm-3 col-form-label">Password</label>
+                            <div class="col-sm-9">
+                                <input type="password" class="form-control form-control-sm pj0-form-control" id="inputPassword3" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3"></div>
+                            <div class="col-sm-5">
+                                <div class="form-group form-check">
+                                    <input type="checkbox" class="form-check-input">
+                                    <label class="form-check-label" style="font-size: 14px">Recordar usuario</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-4" style="font-size: 14px; text-align: right">
+                                <a routerLink="/register">Crear Usuario.</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="offset-sm-3 col-sm-9">
+                                <button type="submit" class="btn btn-primary btn-block" style="background-color: #1998CF;">Ingresar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

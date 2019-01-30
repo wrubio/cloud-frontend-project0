@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 // Component
 import { PagesComponent } from './pages.component';
+import { ShareModule } from '../shared/shared.module';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { Page404Component } from './page404/page404.component';
@@ -18,7 +19,8 @@ import { PAGES_ROUTES } from './pages.routes';
   ],
   imports: [
     BrowserModule,
-    PAGES_ROUTES
+    PAGES_ROUTES,
+    ShareModule
   ],
   exports: [
     DashboardComponent,

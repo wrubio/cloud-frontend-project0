@@ -1,1 +1,203 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+}
+
+.login {
+    background: #ECEDEF;
+}
+
+
+/*********************************************************************************
+* GENERAL STYLES
+*/
+
+.pj0-card {
+    width: 20rem;
+    margin: 0 auto;
+}
+
+
+/*********************************************************************************
+* SIDEBAR STYLES
+*/
+
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+
+.sidebar a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+}
+
+.sidebar a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.sidebar a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+}
+
+div.content {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 1000px;
+}
+
+
+/**  Small devices (landscape phones, 576px and up) **/
+
+@media (min-width: 576px) {
+    .pj0-card {
+        width: 22rem;
+        margin: 0 auto;
+    }
+}
+
+
+/** Medium devices (tablets, 768px and up) **/
+
+@media (min-width: 768px) {
+    .pj0-card {
+        width: 30rem;
+        margin: 0 auto;
+        border: 0 !important;
+        border-radius: 6px !important;
+        box-shadow: 0px 0px 8px 0px rgba(72, 72, 72, 0.75);
+        -moz-box-shadow: 0px 0px 8px 0px rgba(72, 72, 72, 0.75);
+        -webkit-box-shadow: 0px 0px 8px 0px rgba(72, 72, 72, 0.75);
+    }
+    .pj0-card-header {
+        height: 160px;
+        background-image: url('./assets/img/bg-login.jpg');
+        background-position: 69px -97px;
+        background-size: 70% auto;
+        position: relative;
+    }
+    .bg-dark-trans {
+        position: absolute;
+        left: 8px;
+        top: 88px;
+        height: 160px;
+        width: 100%;
+        font-size: 3em;
+    }
+    .pj0-card-body {
+        padding: 30px 40px !important;
+    }
+    .pj0-form-control {
+        border: 0 !important;
+        border-bottom: 1px solid #cccaca !important;
+        border-radius: 0 !important;
+    }
+    .pj0-form-control:focus {
+        border: none !important;
+        border-bottom: 1px solid #cccaca !important;
+        box-shadow: none !important;
+    }
+}
+
+
+/** Large devices (desktops, 992px and up) **/
+
+@media (min-width: 992px) {
+    .pj0-card {
+        width: 30rem;
+        margin: 0 auto;
+        border: 0 !important;
+        border-radius: 6px !important;
+        box-shadow: 0px 0px 8px 0px rgba(72, 72, 72, 0.75);
+        -moz-box-shadow: 0px 0px 8px 0px rgba(72, 72, 72, 0.75);
+        -webkit-box-shadow: 0px 0px 8px 0px rgba(72, 72, 72, 0.75);
+    }
+    .pj0-card-header {
+        height: 160px;
+        background-image: url('./assets/img/bg-login.jpg');
+        background-position: 69px -97px;
+        background-size: 70% auto;
+        position: relative;
+    }
+    .bg-dark-trans {
+        position: absolute;
+        left: 8px;
+        top: 88px;
+        height: 160px;
+        width: 100%;
+        font-size: 3em;
+    }
+    .pj0-card-body {
+        padding: 30px 40px !important;
+    }
+    .pj0-form-control {
+        border: 0 !important;
+        border-bottom: 1px solid #cccaca !important;
+        border-radius: 0 !important;
+    }
+    .pj0-form-control:focus {
+        border: none !important;
+        border-bottom: 1px solid #cccaca !important;
+        box-shadow: none !important;
+    }
+}
+
+
+/** Extra large devices (large desktops, 1200px and up) **/
+
+@media (min-width: 1200px) {
+    .pj0-card {
+        width: 30rem;
+        margin: 0 auto;
+        border: 0 !important;
+        border-radius: 6px !important;
+        box-shadow: 0px 0px 8px 0px rgba(72, 72, 72, 0.75);
+        -moz-box-shadow: 0px 0px 8px 0px rgba(72, 72, 72, 0.75);
+        -webkit-box-shadow: 0px 0px 8px 0px rgba(72, 72, 72, 0.75);
+    }
+    .pj0-card-header {
+        height: 160px;
+        background-image: url('./assets/img/bg-login.jpg');
+        background-position: 69px -97px;
+        background-size: 70% auto;
+        position: relative;
+    }
+    .bg-dark-trans {
+        position: absolute;
+        left: 8px;
+        top: 88px;
+        height: 160px;
+        width: 100%;
+        font-size: 3em;
+    }
+    .pj0-card-body {
+        padding: 30px 40px !important;
+    }
+    .pj0-form-control {
+        border: 0 !important;
+        border-bottom: 1px solid #cccaca !important;
+        border-radius: 0 !important;
+    }
+    .pj0-form-control:focus {
+        border: none !important;
+        border-bottom: 1px solid #cccaca !important;
+        box-shadow: none !important;
+    }
+}
