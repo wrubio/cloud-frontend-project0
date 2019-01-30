@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
 import {
-    UserService
+    UserService,
+    LoginGuardsGuard
 } from './services.index';
 
 @NgModule({
@@ -12,7 +13,8 @@ import {
         HttpClientModule
     ],
     providers: [
-        UserService
+        UserService,
+        LoginGuardsGuard
     ],
     declarations: []
 })
