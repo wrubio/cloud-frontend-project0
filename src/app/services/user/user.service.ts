@@ -21,7 +21,7 @@ export class UserService {
     const url = URL_SERVICES + '/user';
     return this.http.post(url, user)
       .pipe(map( (resp: any) => {
-        swal('Usuario: ', user.email + ' Fue crado!', 'succsess');
+        swal('Usuario: ', user.email + ' Fue crado!', '');
         return resp.user;
       }));
   }

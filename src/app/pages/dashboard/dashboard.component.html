@@ -1,57 +1,122 @@
 <div class="algo">
-    <div class="card" style="width: 100%;">
-        <div class="card-body">
-            <h5 class="card-title">Eventos Programados</h5>
+  <div class="card" style="width: 100%;">
+    <div class="card-body">
+
+      <h5 class="card-title">Eventos</h5>
+
+      <hr>
+
+      <button type="button" *ngIf="create" (click)="create = !create" class="btn btn-secondary card-link btn-sm btn-block mb-4">Crear Evento</button>
+
+      <form *ngIf="!create" ngNativeValidate #f="ngForm" (ngSubmit)="createEvent(f)">
+
+        <div class="card bg-light mb-2" style="max-width: 100%">
+
+          <div class="card-body">
+
+            <div class="input-group input-group-sm">
+              <input [ngModel]="name" name="name" required type="text" class="form-control" placeholder="Titulo">
+            </div>
+
             <hr>
-            <button type="button" class="btn btn-outline-secondary card-link btn-sm mb-4">Crear Evento</button>
 
-            <form action="" *ngFor="let event of userEvents">
-                <div class="card bg-light mb-2" style="max-width: 100%">
-                    <div class="card-body event-card-body">
+            <div class="form-group event-description">
+              <textarea [ngModel]="description" required name="description" class="form-control"></textarea>
+            </div>
 
-                        <div class="input-group input-group-sm">
-                            <input type="text" class="form-control" placeholder="Titulo" [value]="event.name">
-                            <div class="input-group-append" id="button-addon4">
-                                <button class="btn btn-primary" type="button">Editar</button>
-                                <button class="btn btn-danger" type="submit">Borrar</button>
-                            </div>
-                        </div>
+            <div class="start-end-date">
 
-                        <span class="form-text text-danger mt-0"><small><b>Creado:</b>  Fecha de creacion.</small></span>
-
-                        <hr>
-
-                        <div class="form-group event-description">
-                            <textarea class="form-control">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi ut et corporis sit vitae debitis veniam, voluptas iure voluptate assumenda cupiditate nisi quasi veritatis at tenetur magnam distinctio quam saepe.</textarea>
-                        </div>
-
-                        <div class="start-end-date">
-                            <span class="form-text text-danger float-right">
-                              <small>
-                                <div class="input-group input-group-sm">
-                                    <div class="input-group-prepend">
-                                      <span class="input-group-text" id="basic-addon1"><b>Finaliza:</b></span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+              <span class="form-text text-danger float-left" style="margin-right: 15px;">
+                <small>
+                  <div class="input-group input-group-sm">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><b>End:</b></span>
                     </div>
-                    </small>
-                    </span>
+                    <input [ngModel]="endDate" required name="endDate" type="date" class="form-control" placeholder="mm/dd/aaaa">
+                  </div>
+                </small>
+              </span>
 
-                    <span class="form-text text-danger float-right">
-                                <small>
-                                  <div class="input-group input-group-sm">
-                                      <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1"><b>Finaliza:</b></span>
-                </div>
-                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+              <span class="form-text text-danger float-left">
+                <small>
+                  <div class="input-group input-group-sm">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><b>Start:</b></span>
+                    </div>
+                    <input [ngModel]="startDate" required name="startDate" type="date" class="form-control" placeholder="mm/dd/aaaa">
+                  </div>
+                </small>
+              </span>
+
+              <span class="float-right">
+                <button type="button" class="btn btn-outline-secondary btn-sm" (click)="reloadPage()" style="margin-right: 15px;">Cancelar</button>
+                <button type="submit" class="btn btn-outline-secondary btn-sm">Guardar</button>
+              </span>
+            </div>
+
+          </div>
         </div>
-        </small>
-        </span>
+      </form>
 
+      <hr>
+
+      <h6 class="card-title">Programados</h6>
+
+      <form *ngFor="let event of userEvents.slice().reverse()" ngNativeValidate #fe="ngForm">
+
+        <div class="card bg-light mb-4" style="max-width: 100%">
+
+          <div [className]="'card-body event-card-body event' + event._id" data-type="container">
+
+            <div class="input-group input-group-sm">
+              <input type="text" [className]="'form-control event-input event' + event._id" [ngModel]="event.name" name="name" required>
+              <div class="input-group-append" id="button-addon4">
+                <button [className]="'btn btn-outline-secondary event' + event._id" attr.data-id="{{ 'event' + event._id }}" type="submit" (click)="disabledInputs($event)">Editar</button>
+                <button [className]="'btn btn-outline-secondary event' + event._id" type="submit" (click)="deleteEvent(fe)">Borrar</button>
+                <button [className]="'btn btn-outline-secondary d-none event' + event._id" attr.data-id="{{ 'event' + event._id }}" type="submit" (click)="cancel($event)">Cancelar</button>
+                <button [className]="'btn btn-outline-secondary d-none event' + event._id" type="submit" (click)="editEvent(fe)">Guardar Cambios</button>
+                <button [className]="'btn btn-outline-secondary event' + event._id" attr.data-id="{{ 'event' + event._id }}" type="submit" (click)="viewDetail($event)">Ver Detalles</button>
+              </div>
+            </div>
+
+            <span class="form-text text-secondary mt-0"><small><b>Creado:</b> {{ event.created | date: 'dd/MM/yyyy'}}</small></span>
+
+            <hr>
+
+            <div class="form-group event-description">
+              <textarea type="text" [ngModel]="event.description" name="description" [className]="'form-control event-input event' + event._id" required></textarea>
+            </div>
+
+            <div class="start-end-date">
+
+              <span class="form-text text-danger float-right">
+                <small>
+                  <div class="input-group input-group-sm">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><b>Finaliza:</b></span>
+                    </div>
+                    <input type="text" [ngModel]="event.endDate | date: 'MM/dd/yyyy'"  datetime="MM-dd-yyyy" name="endDate" [className]="'form-control event-input event' + event._id" required>
+                  </div>
+                </small>
+              </span>
+
+              <span class="form-text text-danger float-right" style="margin-right: 15px;">
+                <small>
+                  <div class="input-group input-group-sm">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><b>Empieza:</b></span>
+                    </div>
+                    <input type="text" [ngModel]="event.startDate | date: 'MM/dd/yyyy'" datetime="MM-dd-yyyy" name="startDate" [className]="'form-control event-input event' + event._id" required>
+                  </div>
+                </small>
+              </span>
+
+            </div>
+
+            <input type="text" [ngModel]="event._id" name="_id" class="d-none">
+          </div>
+        </div>
+      </form>
     </div>
-</div>
-</div>
-</form>
-</div>
-</div>
+  </div>
 </div>

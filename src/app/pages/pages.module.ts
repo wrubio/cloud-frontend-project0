@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
 // Component
@@ -8,6 +9,7 @@ import { ShareModule } from '../shared/shared.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { Page404Component } from './page404/page404.component';
 import { EventComponent } from './event/event.component';
+
 
 // Routes
 import { PAGES_ROUTES } from './pages.routes';
@@ -22,7 +24,9 @@ import { PAGES_ROUTES } from './pages.routes';
   imports: [
     BrowserModule,
     PAGES_ROUTES,
-    ShareModule
+    ShareModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports: [
     DashboardComponent,

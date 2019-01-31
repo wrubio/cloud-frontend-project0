@@ -18,4 +18,31 @@ export class EventService {
     return this.http.get(url);
   }
 
+  createEvent (event: Event, token: string) {
+    const url = URL_SERVICES + '/event?token=' + token;
+    return this.http.post(url, event)
+      .pipe(map( (resp: any) => {
+        swal('Evento: ', event.name + ' Fue crado!', '');
+        return resp;
+      }));
+  }
+
+  editEvent (event: Event, token: string) {
+    const url = URL_SERVICES + '/event/' + event._id + '?token=' + token;
+    return this.http.put(url, event)
+      .pipe(map( (resp: any) => {
+        swal('Evento: ', event.name + ' fue actualizado!', '');
+        return resp;
+      }));
+  }
+
+  deleteEvent (event: Event, token: string) {
+    const url = URL_SERVICES + '/event/' + event._id + '?token=' + token;
+    return this.http.delete(url)
+    .pipe(map( (resp: any) => {
+      swal('Evento: ', event.name + ' Fue eliminado!', '');
+      return resp;
+    }));
+  }
+
 }
